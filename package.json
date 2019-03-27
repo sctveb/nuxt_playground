@@ -1,0 +1,19 @@
+{
+    "name": "my-apps",
+    "scripts": {
+        "dev": "nuxt",
+        "build": "nuxt build",
+        "start": "nuxt start",
+        "generate": "nuxt generate"
+    },
+    "devDependencies": {
+        "@fortawesome/fontawesome-free": "^5.8.1",
+        "bulma": "^0.7.4",
+        "node-sass": "^4.11.0",
+        "sass-loader": "^7.1.0"
+    },
+    "dependencies": {
+        "material-design-icons-iconfont": "^4.0.5",
+        "nuxt": "^2.4.5"
+    }
+}
