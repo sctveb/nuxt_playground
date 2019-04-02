@@ -1,7 +1,7 @@
 <template>
     <div>
         <ul>
-            <li v-for="(todoItem, index) in propsdata" v-bind:key="index" class="shadow">
+            <li v-for="(todoItem, index) in this.$store.state.todoItems" v-bind:key="index" class="shadow">
               <i class="checkBtn fas fa-check" v-bind:class="{checkBtnCompleted: todoItem.completed}" v-on:click="togglecomplete(todoItem,index)"></i>
               <span v-bind:class="{textCompleted: todoItem.completed}">{{todoItem.item}}</span>
               <span class="removeBtn" v-on:click="removeTodo(todoItem, index)"><i class="fab fa-algolia"></i></span></li>
@@ -11,7 +11,6 @@
 
 <script>
 export default {
-    props:['propsdata'],
     methods: {
         removeTodo(todoItem, index) {          
             console.log(todoItem, index);
