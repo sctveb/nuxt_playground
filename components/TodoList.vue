@@ -10,11 +10,15 @@
 </template>
 
 <script>
+// import {mapGetters, mapMutations} from 'vuex'
 export default {
     methods: {
-        removeTodo(todoItem, index) {          
-            console.log(todoItem, index);
-            this.$emit('removeItem', todoItem, index);            
+        removeTodo(todoItem, index) {
+          //  const obj = {
+          //    todoItem, index
+          //  };          
+            this.$store.commit('removeOneItem', { todoItem, index});
+            // this.$emit('removeItem', todoItem, index);            
         },
         togglecomplete(todoItem, index) {          
           // console.log(todoItem);

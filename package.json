@@ -15,6 +15,8 @@
     },
     "dependencies": {
         "material-design-icons-iconfont": "^4.0.5",
-        "nuxt": "^2.4.5"
+        "nuxt": "^2.4.5",
+        "nuxt-vuex-localstorage": "^1.2.6",
+        "vuex-persistedstate": "^2.5.4"
     }
 }

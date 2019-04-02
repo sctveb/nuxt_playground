@@ -1,5 +1,7 @@
 export default {
     mode: 'universal',
+    // module: ['nuxt-vuex-localstorage'],
+    // plugins: [{ src: '~/plugins/localStorage.js', ssr: false }],
     css: [
         // 'bulma',
         '@fortawesome/fontawesome-free/css/all.css',
