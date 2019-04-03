@@ -6,6 +6,7 @@
 </template>
 
 <script>
+import {mapGetters, mapMutations} from 'vuex'
 export default {
     data() {
         return {
@@ -25,7 +26,7 @@ export default {
         clearInput() {
             this.newTodoItem = '';
         }
-    }
+    },    
 }
 </script>
 

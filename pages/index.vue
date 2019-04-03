@@ -2,8 +2,8 @@
     <div>
     <todo-header></todo-header>
     <todo-input></todo-input>
-    <todo-list v-bind:propsdata="todoItems" v-on:toggleItem="toggleOneItem"></todo-list>
-    <todo-footer v-on:clearAll="clearAllItems"></todo-footer>
+    <todo-list></todo-list>
+    <todo-footer></todo-footer>
     </div>
 </template>
 
@@ -21,25 +21,21 @@ export default {
         TodoInput,
         TodoList,
         TodoFooter
-    },
-    data() {
-        return {
-            todoItems: []
+    },    
+    created(){
+       const arr = [];
+        if(process.client){
+        if(localStorage.length > 0) {
+            for(var i = 0; i < localStorage.length; i++){
+                if(localStorage.key(i) !== 'loglevel:webpack-dev-server') {
+                   arr.push(JSON.parse(localStorage.getItem(localStorage.key(i))));
+                    }
+                }
+            }
         }
-    },
-    // created(){
-    //    const arr = [];
-    //     if(process.client){
-    //     if(localStorage.length > 0) {
-    //         for(var i = 0; i < localStorage.length; i++){
-    //             if(localStorage.key(i) !== 'loglevel:webpack-dev-server') {
-    //                this.localStorage.push(JSON.parse(localStorage.getItem(localStorage.key(i))));
-    //             }
-    //         }
-    //     }
-    //     } 
-    // },    
-    methods: {
+        this.$store.commit('test', {arr}) 
+    },   
+    // methods: {
         // addOneItem(todoItem) {
         //     var obj = {completed: false, item: todoItem};
         //     localStorage.setItem(todoItem, JSON.stringify(obj));
@@ -49,20 +45,20 @@ export default {
         //     localStorage.removeItem(todoItem.item);
         //     this.todoItems.splice(index, 1);
         // },
-        toggleOneItem(todoItem, index) {
-        //   todoItem.completed = !todoItem.completed;
-          this.todoItems[index].completed = !this.todoItems[index].completed;      
-          localStorage.removeItem(todoItem.item);     
-          localStorage.setItem(todoItem.item, JSON.stringify(todoItem));   
-        },
-        clearAllItems(){
-            localStorage.clear();
-            this.todoItems = [];
-        }
-    },
-    fetch({store}){
-        store.commit('test')
-    }   
+        // toggleOneItem(todoItem, index) {
+        // //   todoItem.completed = !todoItem.completed;
+        //   this.todoItems[index].completed = !this.todoItems[index].completed;      
+        //   localStorage.removeItem(todoItem.item);     
+        //   localStorage.setItem(todoItem.item, JSON.stringify(todoItem));   
+        // },
+        // clearAllItems(){
+        //     localStorage.clear();
+        //     this.todoItems = [];
+        // }
+    // },
+    // fetch({store, app}){
+    //     store.commit('test')
+    // }   
 }
 </script>
 

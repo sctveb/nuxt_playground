@@ -1,6 +1,6 @@
 export default {
     mode: 'universal',
-    // module: ['nuxt-vuex-localstorage'],
+    module: ['nuxt-vuex-localstorage'],
     // plugins: [{ src: '~/plugins/localStorage.js', ssr: false }],
     css: [
         // 'bulma',
