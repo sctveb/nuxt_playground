@@ -1,11 +1,11 @@
 <template>
     <div>
-        <ul>
+      <ul>
             <li v-for="(todoItem, index) in this.$store.state.todoItems" v-bind:key="index" class="shadow">
               <i class="checkBtn fas fa-check" v-bind:class="{checkBtnCompleted: todoItem.completed}" v-on:click="togglecomplete({todoItem, index})"></i>
               <span v-bind:class="{textCompleted: todoItem.completed}">{{todoItem.item}}</span>
               <span class="removeBtn" v-on:click="removeTodo({todoItem, index})"><i class="fab fa-algolia"></i></span></li>
-        </ul>
+      </ul>
     </div>
 </template>
 
@@ -39,7 +39,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style>
 ul {
   list-style-type: none;
   padding-left: 0px;
@@ -74,6 +74,18 @@ li {
 }
 
 /* transition css */
+.list-enter-active, .list-leave-active {
+  transition: all 1s;
+}
+.list-enter, .list-leave-to /* .list-leave-active below version 2.1.8 */ {
+  opacity: 0;
+  transform: translateY(30px);
+}
+/* transition style */
+.list-item {
+  display: inline-block;
+  margin-right: 10px;
+}
 .list-enter-active, .list-leave-active {
   transition: all 1s;
 }

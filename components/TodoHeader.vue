@@ -1,6 +1,6 @@
 <template>
     <header><h1>        
-        Test
+        바보다 맨이야...
         </h1></header>
 </template>
 

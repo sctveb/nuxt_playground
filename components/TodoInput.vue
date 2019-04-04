@@ -2,15 +2,25 @@
     <div class="inputBox shadow">
         <input type="text" v-model="newTodoItem" v-on:keyup.enter="addTodo">        
         <span class="addContainer" v-on:click="addTodo"><i class="fas fa-plus"></i></span>
-    </div>
+        <Modal v-if="showModal" @close="showModal = false"> 
+          <h3 slot="header">
+            test
+            </h3>
+        </Modal>
+      </div>       
 </template>
 
 <script>
+import Modal from '../components/common/Modal.vue'
 import {mapGetters, mapMutations} from 'vuex'
 export default {
+    components:{
+      Modal
+    },
     data() {
         return {
-            newTodoItem: ""
+            newTodoItem: "",
+            showModal: false
         }
     },
     methods: {
@@ -21,6 +31,9 @@ export default {
             this.$store.commit('addOneItem', text);
             // this.$emit('addTodoItem', this.newTodoItem);            
             this.clearInput();
+            } else {
+              this.showModal = !this.showModal;
+
             }
         },
         clearInput() {
@@ -30,7 +43,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style>
 input:focus {
   outline: none;
 }
