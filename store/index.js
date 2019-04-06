@@ -6,35 +6,34 @@ export const state = () => ({
 
 export const mutations = {
     addOneItem(state, todoItem) {
-        console.log(state.todoItems)
         const obj = {completed: false, item: todoItem};
         localStorage.setItem(todoItem, JSON.stringify(obj));
-        state.todoItems.push(obj)    
+        state.todoItems.push(obj);
     },
     removeOneItem(state,payload){
         localStorage.removeItem(payload.todoItem.item);
         state.todoItems.splice(payload.index, 1);
     },
-    test(state, payload){
-        state.todoItems = payload.arr;
+    test(state){
+        const arr = [];
+        if(process.client){ 
+        if(localStorage.length > 0) {
+            for(var i = 0; i < localStorage.length; i++){
+                if(localStorage.key(i) !== 'loglevel:webpack-dev-server') {
+                   arr.push(JSON.parse(localStorage.getItem(localStorage.key(i))));
+                }
+            }
+        }
+    }
+        state.todoItems = arr;
     },
-    toggleOneItem(state,payload) {
-        //   todoItem.completed = !todoItem.completed;
-          state.todoItems[payload.index].completed = !state.todoItems[payload.index].completed;      
-          localStorage.removeItem(payload.todoItem.item);     
-          localStorage.setItem(payload.todoItem.item, JSON.stringify(payload.todoItem));   
-        },
     clearAllItems(state){
+        if(process.client){
         localStorage.clear();
         state.todoItems = [];
-    },
-  }
-
-export const getters = {
-    storedTodoItems(state) {
-        return state.todoItems;
+        }
     }
-}
+  }
 
 // const storage = {
 //     fetch() {

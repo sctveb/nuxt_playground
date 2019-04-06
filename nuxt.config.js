@@ -4,6 +4,7 @@ export default {
     // plugins: [{ src: '~/plugins/localStorage.js', ssr: false }],
     css: [
         // 'bulma',
+        '~/assets/main.css',
         '@fortawesome/fontawesome-free/css/all.css',
         'material-design-icons-iconfont/dist/material-design-icons.css'
     ],

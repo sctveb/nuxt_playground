@@ -1,17 +1,20 @@
 <template>
     <div>
-      <ul>
+       <transition-group name="list" tag="ul">
             <li v-for="(todoItem, index) in this.$store.state.todoItems" v-bind:key="index" class="shadow">
               <i class="checkBtn fas fa-check" v-bind:class="{checkBtnCompleted: todoItem.completed}" v-on:click="togglecomplete({todoItem, index})"></i>
               <span v-bind:class="{textCompleted: todoItem.completed}">{{todoItem.item}}</span>
               <span class="removeBtn" v-on:click="removeTodo({todoItem, index})"><i class="fab fa-algolia"></i></span></li>
-      </ul>
+       </transition-group>
     </div>
 </template>
 
 <script>
 import {mapGetters, mapMutations} from 'vuex'
 export default {
+    transition: {
+      name: "list"
+    },
     methods: {
       ...mapMutations({
         removeTodo:'removeOneItem',
