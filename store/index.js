@@ -1,11 +1,16 @@
+import { fetchNewsList, fetchJobsList, fetchAsksList } from '../src/api/index.js'
 
 export const state = () => ({
     todoItems: [],
-    check: false
+    check: false,
+    news: [],
+    jobs: [],
+    asks: []
     // todoItems: storage.fetch(),            
 });
 
 export const mutations = {
+    // todolist
     addOneItem(state, todoItem) {
         const obj = {completed: false, item: todoItem};
         localStorage.setItem(todoItem, JSON.stringify(obj));
@@ -33,8 +38,59 @@ export const mutations = {
         localStorage.clear();
         state.todoItems = [];
         }
+    },
+    // vuenews
+    SET_NEWS(state, news){
+        state.news = news;
+    },
+    SET_JOBS(state, jobs){
+        state.jobs = jobs;
+    },
+    SET_ASKS(state, asks){
+        state.asks = asks;
     }
   }
+
+export const actions = {
+    FETCH_NEWS(context) {
+        fetchNewsList()
+        .then(function(response){
+            context.commit('SET_NEWS', response.data)
+            // state.news = response.data;           
+        })
+        .catch(function(error){
+            console.log(error);
+        })
+    },
+    FETCH_JOBS(context){
+        fetchJobsList()
+        .then(response => {
+            context.commit('SET_JOBS', response.data)
+        })
+        .catch(error => {
+            console.log(error)
+        })
+    },
+    FETCH_ASKS(context){
+        fetchAsksList()
+        .then(response => {
+            context.commit('SET_ASKS', response.data)
+        })
+        .catch(error => {
+            console.log(error)
+        })
+    }
+}
+
+export const getters = {
+    fetchedAsk(state){
+        return state.ask;
+    }
+}
+
+
+
+
 
 // const storage = {
 //     fetch() {
