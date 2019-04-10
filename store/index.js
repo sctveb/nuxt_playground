@@ -84,7 +84,7 @@ export const actions = {
 
 export const getters = {
     fetchedAsk(state){
-        return state.ask;
+        return state.asks;
     }
 }
 
