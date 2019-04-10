@@ -1,6 +1,6 @@
 <template>
     <header><h1>        
-        바보다 맨이야...
+        해야 할 일
         </h1></header>
 </template>
 

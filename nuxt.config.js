@@ -1,5 +1,5 @@
 export default {
-    mode: 'universal',
+    mode: 'spa',
     module: ['nuxt-vuex-localstorage'],
     // plugins: [{ src: '~/plugins/localStorage.js', ssr: false }],
     css: [
@@ -32,5 +32,8 @@ export default {
             { rel: "icon", type: "image/png", sizes: "16x16", href: "/images/favicon/favicon-16x16.png"},
             { rel: "manifest", href: "/images/favicon/manifest.json"}
         ]
-    }
+    },
+    // router:{
+    //     middleware: ''
+    // }
 }

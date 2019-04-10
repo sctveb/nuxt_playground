@@ -4,7 +4,7 @@
             <li v-for="(todoItem, index) in this.$store.state.todoItems" v-bind:key="index" class="shadow">
               <i class="checkBtn fas fa-check" v-bind:class="{checkBtnCompleted: todoItem.completed}" v-on:click="togglecomplete({todoItem, index})"></i>
               <span v-bind:class="{textCompleted: todoItem.completed}">{{todoItem.item}}</span>
-              <span class="removeBtn" v-on:click="removeTodo({todoItem, index})"><i class="fab fa-algolia"></i></span></li>
+              <span class="removeBtn" v-on:click="removeTodo({todoItem, index})"><i class="far fa-trash-alt"></i></span></li>
        </transition-group>
     </div>
 </template>

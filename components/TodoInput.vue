@@ -4,8 +4,11 @@
         <span class="addContainer" v-on:click="addTodo"><i class="fas fa-plus"></i></span>
         <Modal v-if="showModal" @close="showModal = false"> 
           <h3 slot="header">
-            test
+            주의
             </h3>
+          <div slot="body">
+            아무 내용도 입력하지 않으셨습니다
+          </div>
         </Modal>
       </div>       
 </template>
@@ -33,7 +36,6 @@ export default {
             this.clearInput();
             } else {
               this.showModal = !this.showModal;
-
             }
         },
         clearInput() {

@@ -1,6 +1,7 @@
 
 export const state = () => ({
     todoItems: [],
+    check: false
     // todoItems: storage.fetch(),            
 });
 

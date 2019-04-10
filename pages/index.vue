@@ -1,6 +1,6 @@
 <template>
 <!-- navbar -->
-    <div>
+    <div>        
         <button v-on:click="show = !show">
     Toggle
   </button>
@@ -23,10 +23,10 @@ export default {
     transition: {
         name:'fade',        
     },
+    middleware: 'check'
 
 }
 </script>
 
 <style>
-
 </style>
