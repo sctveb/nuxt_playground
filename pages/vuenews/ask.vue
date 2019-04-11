@@ -1,6 +1,11 @@
 <template>
     <div>
-        <div v-for="item in askItem">{{item.title}}</div>
+        <!-- <div v-for="item in askItem">{{item.title}}</div> -->
+        <p v-for="item in askItem">
+            <nuxt-link :to="`item/${item.id}`">{{item.title}}</nuxt-link>
+            <!-- <a v-bind:href="item.url">{{item.url}}</a> -->
+            <small>{{item.time_ago}} by {{item.user}}</small>
+        </p>
     </div>
 </template>
 

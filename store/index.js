@@ -1,11 +1,14 @@
-import { fetchNewsList, fetchJobsList, fetchAsksList } from '../src/api/index.js'
+import { fetchNewsList, fetchJobsList, fetchAsksList, fetchUserInfoList, fetchCommentItem } from '../src/api/index.js'
 
 export const state = () => ({
     todoItems: [],
     check: false,
+    // vuenews
     news: [],
     jobs: [],
-    asks: []
+    asks: [],
+    user: {},
+    item: []
     // todoItems: storage.fetch(),            
 });
 
@@ -48,6 +51,12 @@ export const mutations = {
     },
     SET_ASKS(state, asks){
         state.asks = asks;
+    },
+    SET_USER(state, user){
+        state.user = user;
+    },
+    SET_ITEM(state,item){
+        state.item = item;
     }
   }
 
@@ -79,12 +88,33 @@ export const actions = {
         .catch(error => {
             console.log(error)
         })
+    },
+    FETCH_USER(context, name) {
+        fetchUserInfoList(name)
+        .then(({data}) => {
+            context.commit('SET_USER',data);
+        })
+        .catch(error => {
+            console.log(error);
+        })
+    },
+    FETCH_ITEM(context, id) {
+        fetchCommentItem(id)
+        .then(response => {
+            context.commit('SET_ITEM', response.data);
+        })
+        .catch(error => {
+            console.log(error)
+        })
     }
 }
 
 export const getters = {
     fetchedAsk(state){
         return state.asks;
+    },
+    fetchedItem(state){
+        return state.item;
     }
 }
 
