@@ -7,7 +7,7 @@
                 </a>
             <small>{{item.time_ago}} 
                 <!-- <nuxt-link v-bind:to="{path:'`user/${item.user}`',params:{id:'${item.user}'}}">{{item.user}}</nuxt-link> -->
-                <nuxt-link v-bind:to="`user/${item.user}`">{{item.user}}</nuxt-link>
+                <nuxt-link v-bind:to="`/vuenews/user/${item.user}`">{{item.user}}</nuxt-link>
                 </small>
         </p>
     </div>

@@ -1,3 +1,5 @@
+import axios from 'axios'
+
 export default {
     mode: 'spa',
     module: ['nuxt-vuex-localstorage'],
@@ -33,7 +35,14 @@ export default {
             { rel: "manifest", href: "/images/favicon/manifest.json"}
         ]
     },
-    // router:{
-    //     middleware: ''
+    // generate: {
+    //     routes() {
+    //         return axios.get('https://api.hnpwa.com/v0/news/1.json')
+    //         .then((res) => {
+    //             return res.data.map((user) => {
+    //                 return '/user/' + user.user
+    //             })
+    //         })
+    //     }
     // }
 }
