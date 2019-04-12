@@ -1,38 +1,35 @@
 <template>
     <div>
         <section>
-        <div class="user-container">
-            <div>
-                <i class="fas fa-user"></i>
-            </div>
-            <div class="user-description">
-                <nuxt-link :to="`/vuenews/user/${fetchedItem.user}`">
-                    {{fetchedItem.user}}
-                </nuxt-link>
-                <div class="time">
-                    {{fetchedItem.time_ago}}
-                </div>
-            </div>
-        </div>
-        <div>
+            <user-profile :info="fetchedItem">
+                <nuxt-link v-bind:to="`/vuenews/user/${fetchedItem.user}`" slot="username">{{fetchedItem.user}}</nuxt-link>
+                <template slot="time">{{'Posted ' +fetchedItem.time_ago}}</template>
+            </user-profile>        
+        </section>
+        <section>
             <h2>{{fetchedItem.title}}</h2>
-        </div>
-    </section>
-    <section>
-        <div v-html="fetchedItem.content">
-            <!-- {{fetchedItem.content}} -->
-        </div>
-    </section>    
+        </section>
+        <section>
+            <div v-html="fetchedItem.content">
+                <!-- {{fetchedItem.content}} -->
+            </div>
+        </section>    
     </div>
 </template>
 
 <script>
 import { mapGetters } from 'vuex'
+import UserProfile from "../../../../components/UserProfile.vue"
 export default {
+    components: {
+        UserProfile
+    }, 
     computed: {
         ...mapGetters(['fetchedItem'])
     },
-    created(){
+    created(){        
+        const name = this.$route.name;
+        console.log(name)    
         const item_id = this.$route.params.id
         this.$store.dispatch('FETCH_ITEM',item_id)
     }
@@ -40,7 +37,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .user-container {
     display:flex;
     align-items: center;

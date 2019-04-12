@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="todolist">
     <todo-header></todo-header>
     <todo-input></todo-input>
     <todo-list></todo-list>
@@ -63,18 +63,18 @@ export default {
 </script>
 
 <style>
-body {
+.todolist{
     text-align: center;
     background-color: #F6F6F6;
 }
-input {
+.todolist input {
     border-style: groove;
     width: 200px;
 }
-button {
+.todolist button {
     border-style: groove;
 }
-.shadow {
+.todolist .shadow {
     box-shadow: 5px 10px 10px rgba(0,0,0,0.03);
 }
 </style>

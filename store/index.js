@@ -8,7 +8,7 @@ export const state = () => ({
     jobs: [],
     asks: [],
     user: {},
-    item: []
+    item: {}
     // todoItems: storage.fetch(),            
 });
 
