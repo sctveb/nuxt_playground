@@ -1,6 +1,6 @@
 <template>
 <div>
-    <tool-bar></tool-bar>
+    <tool-bar></tool-bar>    
     <nuxt/>
     <Footer></Footer>    
 </div>
@@ -12,7 +12,7 @@ import Footer from "../components/common/Footer.vue"
 export default {
     components: {
         ToolBar,
-        Footer
+        Footer,        
     }
 
 }

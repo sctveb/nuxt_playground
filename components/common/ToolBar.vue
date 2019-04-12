@@ -3,7 +3,8 @@
         <nuxt-link to="/vuenews/news">News</nuxt-link> |
         <nuxt-link to="/vuenews/ask">Ask</nuxt-link> |
         <nuxt-link to="/vuenews/jobs">Jobs</nuxt-link> |
-        <nuxt-link to="/todolist">할일목록</nuxt-link>        
+        <nuxt-link to="/todolist">할일목록</nuxt-link> |
+        <nuxt-link to="/chartjs">chart.js</nuxt-link>       
         </div>
 </template>
 
