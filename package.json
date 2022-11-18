@@ -15,6 +15,6 @@
     },
     "dependencies": {
         "material-design-icons-iconfont": "^4.0.5",
-        "nuxt": "^2.4.5"
+        "nuxt": "^2.15.8"
     }
 }
